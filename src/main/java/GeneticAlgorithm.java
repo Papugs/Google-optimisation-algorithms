@@ -71,7 +71,6 @@ public class GeneticAlgorithm {
         }
         int pointer1 = solutions.length - 1;
         int pointer2 = new_generation.length - 1;
-        System.out.println(new_fitness[0]);
         for (int i = ten_percent; i < new_generation.length; i++) {
             solutions[i] = (fitness[pointer1] > new_fitness[pointer2]) ? solutions[pointer1--]
                     : new_generation[pointer2--];

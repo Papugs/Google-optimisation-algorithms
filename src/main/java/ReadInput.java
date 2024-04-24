@@ -150,15 +150,23 @@ public class ReadInput {
     }
 
     public static void main(String[] args) throws IOException {
+        Scanner input = new Scanner(System.in);
         ReadInput ri = new ReadInput();
-        ri.readGoogle("input/trending_today.in");
-        // System.out.println(ri.data.get("video_ed_request"));
-        // System.out.println(ri.toString());
-        // GeneticAlgorithm ga = new GeneticAlgorithm(ri);
-        // int[][] solution = ga.geneticAlgorithm();
-        // System.out.println(ri.fitness(solution));
-        HillClimbing na = new HillClimbing(ri);
-        int[][] s = na.hillClimbing();
-        System.out.println(ri.fitness(s));
+        // ask what file to use as input
+        System.out.println("What file would you like to use? (example / me_at_the_zoo / trending_today / kittens)");
+        String inputFile = input.nextLine();
+        ri.readGoogle("input/" + inputFile + ".in");
+        // ask what algorithm to run
+        System.out.println("What algorithm would you like to run? (Genetic/Hill Climbing)");
+        String algorithm = input.nextLine();
+        if (algorithm.equalsIgnoreCase("genetic")) {
+            GeneticAlgorithm ga = new GeneticAlgorithm(ri);
+            int[][] solution = ga.geneticAlgorithm();
+            System.out.println("The fitness is: " + ri.fitness(solution));
+        } else {
+            HillClimbing na = new HillClimbing(ri);
+            int[][] s = na.hillClimbing();
+            System.out.println("The fitness is: " + ri.fitness(s));
+        }
     }
 }

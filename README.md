@@ -8,9 +8,8 @@ This repository contains a solution for optimizing video streaming infrastructur
 ## Try it for yourself
 
 1. Simply clone the repository
-2. cd src/main/java
-3. javac ReadInput.java
-4. java ReadInput
+2. Compile the code using: ```javac -d bin src/main/java/*.java```
+3. Finally, Run the program: ```java -cp bin main.java.ReadInput```
 
 ## Problem Statement
 

@@ -33,7 +33,6 @@ public class HillClimbing {
             for (int col = 0; col < solution[0].length; col++) {
                 solution[row][col] ^= 1;
                 new_fitness = ri.fitness(solution);
-                System.out.println(new_fitness);
                 if (new_fitness > max_fitness) {
                     max_fitness = new_fitness;
                     fit_row = row;
@@ -42,7 +41,6 @@ public class HillClimbing {
                 solution[row][col] ^= 1;
             }
         }
-        System.out.println(max_fitness);
         if (max_fitness > fitness) {
             solution[fit_row][fit_col] ^= 1;
             hillClimbing();
